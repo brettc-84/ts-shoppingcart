@@ -37,6 +37,9 @@ export class Basket {
 
     decItemQuantity(itemId: number, amount: number) {
         const it = this.basketItems.find(item => item.id === itemId);
+        if (it.getQuantity()-amount < 0) {
+            throw new Error('Cannot decrease quantity to negative value');
+        }
         it.decQuantity(amount);
     }
 }
