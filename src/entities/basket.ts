@@ -4,7 +4,10 @@ export class Basket {
     id: number;
     basketItems: BasketItem[];
 
-    constructor() {
+    constructor(id?: number) {
+        if (id) {
+            this.id = id;
+        }
         this.basketItems = [];
     }
 
@@ -22,7 +25,7 @@ export class Basket {
     }
 
     removeItemById(itemId: number) {
-        this.basketItems = this.basketItems.filter(item => item.id === itemId);
+        this.basketItems = this.basketItems.filter(item => item.id !== itemId);
         return this.basketItems;
     }
 
@@ -47,5 +50,8 @@ export class Basket {
             throw new Error('Cannot decrease quantity to negative value');
         }
         it.decQuantity(amount);
+        if (it.getQuantity() === 0) {
+            this.removeItemById(it.id);
+        }
     }
 }
