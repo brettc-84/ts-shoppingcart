@@ -1,4 +1,4 @@
 export interface UpdateItemRequestDTO {
     action: string;
-    amount: number;
+    quantity: number;
 }

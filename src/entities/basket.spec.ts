@@ -33,4 +33,13 @@ describe('Basket', () => {
       basket.decItemQuantity(item.id, 10);
     }).toThrow('Cannot decrease quantity to negative value');
   });
+  it('should not be allowed to update an item that does not exist', () => {
+    const item = new BasketItem('m/1/n');
+    expect(() => {
+      basket.decItemQuantity(item.id, 10);
+    }).toThrow('Item does not exist in basket');
+    expect(() => {
+      basket.incItemQuantity(item.id, 10);
+    }).toThrow('Item does not exist in basket');
+  });
 });

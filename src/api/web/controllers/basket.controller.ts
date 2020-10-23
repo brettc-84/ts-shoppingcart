@@ -135,7 +135,7 @@ export class BasketController extends BaseHttpController {
         try {
             const bId = parseInt(basketId);
             const iId = parseInt(itemId);
-            const updateRequest = {action: req.body.action, amount: req.body.amount} as UpdateItemRequestDTO;
+            const updateRequest = {action: req.body.action, quantity: req.body.quantity} as UpdateItemRequestDTO;
             res.json(
                 this._basketService.updateBasketItemQuantity(bId, iId, updateRequest)).status(200);
         } catch (err) {

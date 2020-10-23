@@ -32,11 +32,17 @@ export class Basket {
 
     incItemQuantity(itemId: number, amount: number) {
         const it = this.basketItems.find(item => item.id === itemId);
+        if (!it) {
+            throw new Error('Item does not exist in basket');
+        }
         it.incQuantity(amount);
     }
 
     decItemQuantity(itemId: number, amount: number) {
         const it = this.basketItems.find(item => item.id === itemId);
+        if (!it) {
+            throw new Error('Item does not exist in basket');
+        }
         if (it.getQuantity()-amount < 0) {
             throw new Error('Cannot decrease quantity to negative value');
         }
