@@ -1,7 +1,6 @@
 import { injectable } from 'inversify';
 import { Basket } from '../../entities/basket';
 import { IBasketDatabase } from './database';
-import { testData } from './fixtures/test-data';
 
 @injectable()
 export class InMemoryDb implements IBasketDatabase {
@@ -26,9 +25,5 @@ export class InMemoryDb implements IBasketDatabase {
   public updateBasket(id: number, newBasket: Basket): Basket {
     this._baskets[id] = newBasket;
     return newBasket;
-  }
-
-  public createTestData() {
-      this._baskets = testData;
   }
 }

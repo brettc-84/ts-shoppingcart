@@ -5,12 +5,14 @@ import { BasketItem } from "../entities/basket-item";
 import { IBasketDatabase } from "../infrastructure/data/database";
 import { TYPES } from "../types";
 
+import { testData } from '../infrastructure/data/fixtures/test-data';
+
 @injectable()
 export class BasketService {
     @inject(TYPES.IBasketDatabase) private _basketDb: IBasketDatabase;
 
     createTestData(): void {
-        this._basketDb.createTestData();
+        Object.values(testData).forEach(data => this._basketDb.insertBasket(data));
     }
 
     createBasket(): number {

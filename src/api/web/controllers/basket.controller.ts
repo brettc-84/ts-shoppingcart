@@ -109,6 +109,6 @@ export class BasketController extends BaseHttpController {
   @httpPost('/createData')
   private async createTestData(@response() res: express.Response) {
     this._basketService.createTestData();
-    res.send(200);
+    res.sendStatus(200);
   }
 }
