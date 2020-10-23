@@ -5,7 +5,7 @@ Implementation of a Restful shopping cart microservice using Typescript.
 ## Technologies used
 * Typescript
 * NodeJS
-* Inversion
+* Inversify
 * Express
 * Jest
 
