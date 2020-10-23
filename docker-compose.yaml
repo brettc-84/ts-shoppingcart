@@ -1,0 +1,15 @@
+version: '3.7'
+services:
+  shoppingcart_api:
+    container_name: shopping_cart
+    build:
+      context: .
+      target: build
+      args:
+        NODE_ENV: 'local'
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - 3000:3000
+    command: npm run start:dev

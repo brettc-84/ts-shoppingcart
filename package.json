@@ -4,6 +4,7 @@
   "description": "Shopping cart microservice",
   "main": "src/main.ts",
   "scripts": {
+    "build": "tsc",
     "start:dev": "nodemon",
     "start": "ts-node src/main.ts",
     "test": "jest",
