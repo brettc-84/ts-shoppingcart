@@ -36,9 +36,9 @@ export class BasketService {
     updateBasketItemQuantity(basketId: number, itemId: number, updateRequest: UpdateItemRequestDTO): BasketItem {
         const basket = this._basketDb.findBasket(basketId);
         if (updateRequest.action === 'inc') {
-            basket.incItemQuantity(itemId, updateRequest.amount);
+            basket.incItemQuantity(itemId, updateRequest.quantity);
         } else if (updateRequest.action === 'dec') {
-            basket.decItemQuantity(itemId, updateRequest.amount);
+            basket.decItemQuantity(itemId, updateRequest.quantity);
         }
         this._basketDb.updateBasket(itemId, basket);
         return basket.getItemById(itemId);
