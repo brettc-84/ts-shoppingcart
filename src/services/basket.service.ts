@@ -9,6 +9,10 @@ import { TYPES } from "../types";
 export class BasketService {
     @inject(TYPES.IBasketDatabase) private _basketDb: IBasketDatabase;
 
+    createTestData(): void {
+        this._basketDb.createTestData();
+    }
+
     createBasket(): number {
         const newBasket = new Basket();
         return this._basketDb.insertBasket(newBasket);

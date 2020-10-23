@@ -5,4 +5,5 @@ export interface IBasketDatabase {
     listBaskets(): Basket[];
     findBasket(id: number): Basket;
     updateBasket(id: number, basket: Basket);
+    createTestData();
 }
