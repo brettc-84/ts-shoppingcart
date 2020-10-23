@@ -31,12 +31,12 @@ export class Basket {
     }
 
     incItemQuantity(itemId: number, amount: number) {
-        const item = this.basketItems.find(item => item.id === itemId);
-        item.incQuantity(amount);
+        const it = this.basketItems.find(item => item.id === itemId);
+        it.incQuantity(amount);
     }
 
     decItemQuantity(itemId: number, amount: number) {
-        const item = this.basketItems.find(item => item.id === itemId);
-        item.decQuantity(amount);
+        const it = this.basketItems.find(item => item.id === itemId);
+        it.decQuantity(amount);
     }
 }
