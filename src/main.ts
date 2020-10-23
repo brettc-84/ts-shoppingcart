@@ -1,5 +1,6 @@
 import "reflect-metadata";
 import * as bodyParser from "body-parser";
+import apiMetrics = require('prometheus-api-metrics');
 
 import { InversifyExpressServer } from "inversify-express-utils";
 import { container } from "./inversify.config";
@@ -12,6 +13,7 @@ server.setConfig((app) => {
         })
     );
     app.use(bodyParser.json());
+    app.use(apiMetrics.expressMiddleware());
 });
 
 const serverInstance = server.build();
