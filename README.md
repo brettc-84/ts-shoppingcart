@@ -1,6 +1,6 @@
 # Typescript Shopping Cart
 
-Implementation of a shopping cart microservice using Typescript.
+Implementation of a Restful shopping cart microservice using Typescript.
 
 ## Technologies used
 * Typescript
@@ -34,6 +34,40 @@ docker-compose up
 ```
 
 ## Available APIs
+```bash
+# Create test data
+curl -L -X POST 'localhost:3000/baskets/createData'
 
+# Get baskets
+curl -L -X GET 'localhost:3000/baskets/1' 
 
+# Add item
+curl -L -X POST 'localhost:3000/baskets/1/items' \
+-H 'Content-Type: application/json' \
+--data-raw '{
+    "sku": "36055",
+    "quantity": 1
+}'
 
+# Increase quantity of item
+curl -L -X PATCH 'localhost:3000/baskets/1/items/102' \
+-H 'Content-Type: application/json' \
+--data-raw '{
+    "action": "inc",
+    "amount": 1
+}'
+
+# Decrease quantity of item
+curl -L -X PATCH 'localhost:3000/baskets/1/items/102' \
+-H 'Content-Type: application/json' \
+--data-raw '{
+    "action": "dec",
+    "amount": 1
+}'
+
+# Delete item
+curl -L -X DELETE 'localhost:3000/baskets/1/items/102'
+
+# Create a new basket
+curl -L -X POST 'localhost:3000/baskets/'
+```
