@@ -1,6 +1,5 @@
 import { injectable } from "inversify";
 import { Basket } from "../../entities/basket";
-import { BasketItem } from "../../entities/basket-item";
 import { IBasketDatabase } from "./database";
 
 @injectable()

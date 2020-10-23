@@ -20,4 +20,23 @@ export class Basket {
             existing.incQuantity();
         }
     }
+
+    removeItemById(itemId: number) {
+        this.basketItems = this.basketItems.filter(item => item.id === itemId);
+        return this.basketItems;
+    }
+
+    getItemById(itemId: number) {
+        return this.basketItems.find(item => item.id === itemId);
+    }
+
+    incItemQuantity(itemId: number, amount: number) {
+        const item = this.basketItems.find(item => item.id === itemId);
+        item.incQuantity(amount);
+    }
+
+    decItemQuantity(itemId: number, amount: number) {
+        const item = this.basketItems.find(item => item.id === itemId);
+        item.decQuantity(amount);
+    }
 }

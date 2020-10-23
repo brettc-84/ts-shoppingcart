@@ -1,7 +1,7 @@
 import {Container} from 'inversify';
 import {TYPES} from './types';
 
-import './api/web/basket.controller';
+import './api/web/controllers/basket.controller';
 import { BasketService } from './services/basket.service';
 import { IBasketDatabase } from './infrastructure/data/database';
 import { InMemoryDb } from './infrastructure/data/in-memory-db';
